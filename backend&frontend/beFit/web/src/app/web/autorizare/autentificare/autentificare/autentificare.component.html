@@ -1,0 +1,46 @@
+<section class="auth-form-container">
+    <form class="formular" [formGroup]="formGroup">
+
+        <p>
+            <mat-form-field appearance="standard" class="input-formular">
+
+                <mat-label *ngIf="!formGroup.controls.email.invalid">
+                    <mat-icon class="validInput">done</mat-icon>
+                </mat-label>
+                <mat-label>Email</mat-label>
+
+                <input formControlName="email" matInput>
+                <mat-icon matSuffix>alternate_email</mat-icon>
+
+                <mat-hint>ex: magic_traian_băsi@yahoo.com</mat-hint>
+                <mat-error *ngIf="formGroup.controls.email.invalid">{{getErrorMessage("email")}}</mat-error>
+
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="standard" class="input-formular">
+
+                <mat-label *ngIf="!formGroup.controls.password.invalid">
+                    <mat-icon class="validInput">done</mat-icon>
+                </mat-label>
+                <mat-label>Parola</mat-label>
+
+                <input formControlName="password" matInput type="password">
+                <mat-icon matSuffix>lock</mat-icon>
+
+                <mat-hint>ex: parLAmentaRICINstiti</mat-hint>
+                <mat-error *ngIf="formGroup.controls.password.invalid">{{getErrorMessage("password")}}</mat-error>
+
+            </mat-form-field>
+        </p>
+        <p class="finalErrorMessageStyle">
+            <mat-error *ngIf="apiMsg">{{apiMsg}}</mat-error>
+            <mat-spinner *ngIf="isWaitingForApiResponse" diameter="30"></mat-spinner>
+        </p>
+        <button *ngIf="!isWaitingForApiResponse" mat-stroked-button class="buttonBF"
+            (click)="signin()">Autentificare</button>
+    </form>
+    <a [routerLink]="'/inregistrare'">Sau înregistrează-te</a>
+    <br />
+    <a [routerLink]="'/home'">Acasă</a>
+</section>

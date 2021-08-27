@@ -1,0 +1,21 @@
+<header>
+    <mat-toolbar class="nav">
+        <span>
+            <img title="beFit-Pagina principală de administrare" src="assets/logo.png" class="logo" [routerLink]="'/admin'">
+        </span>
+
+        <div title="Adaugă un abonament." class="addBtn" [routerLink]="'/admin/creare_abonament'">
+            <mat-icon class="plus-icon">
+                add
+            </mat-icon>
+        </div>
+        
+        <span class="spacer"></span>
+        <span>
+            <button mat-button (click)="logout()">
+                <span>Deconectare</span>
+            </button>
+        </span>
+    </mat-toolbar>
+</header>
+<router-outlet></router-outlet>
